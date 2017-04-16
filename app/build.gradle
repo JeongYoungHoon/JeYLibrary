@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+/*
+./gradlew clean build bintrayUpload -PbintrayUser=jeyechoo -PbintrayKey=7b5360461ef7851132f69e9875599942d6f529ff -PdryRun=false
+*/
+
+publish {
+    userOrg = 'jeyechoo'
+    groupId = 'com.jey_dev'
+    artifactId = 'JeYLibrary'
+    publishVersion = '1.2.0'
+    desc = ''
+    website = "https://github.com/JeongYoungHoon/${artifactId}"
+    issueTracker = "${website}/issues"
+    repository = "${website}.git"
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+//        applicationId "com.jey_dev.lib"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0.0"
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.jey_dev:JeYBasedLibrary:1.2.0'
+    compile 'com.jey_dev:JeYViewLibrary:1.2.0'
+    compile 'com.jey_dev:JeYDialogLibrary:1.2.0'
+    compile 'com.jey_dev:JeYNoticeLibrary:1.2.0'
+//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+//    compile 'com.android.support:appcompat-v7:25.3.1'
+//    testCompile 'junit:junit:4.12'
+}
