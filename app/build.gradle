@@ -9,7 +9,7 @@ publish {
     userOrg = 'jeyechoo'
     groupId = 'com.jey_dev'
     artifactId = 'JeYLibrary'
-    publishVersion = '1.2.0'
+    publishVersion = '1.2.2'
     desc = ''
     website = "https://github.com/JeongYoungHoon/${artifactId}"
     issueTracker = "${website}/issues"
@@ -21,7 +21,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
 //        applicationId "com.jey_dev.lib"
-        minSdkVersion 16
+        minSdkVersion 10
         targetSdkVersion 25
         versionCode 1
         versionName "1.0.0"
@@ -33,14 +33,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions{
+        abortOnError false
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.jey_dev:JeYBasedLibrary:1.2.0'
-    compile 'com.jey_dev:JeYViewLibrary:1.2.0'
-    compile 'com.jey_dev:JeYDialogLibrary:1.2.0'
-    compile 'com.jey_dev:JeYNoticeLibrary:1.2.0'
+    compile 'com.jey_dev:JeYBasedLibrary:1.2.2'
+    compile 'com.jey_dev:JeYViewLibrary:1.2.2'
+    compile 'com.jey_dev:JeYDialogLibrary:1.2.2'
+    compile 'com.jey_dev:JeYNoticeLibrary:1.2.2'
 //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
 //        exclude group: 'com.android.support', module: 'support-annotations'
 //    })
