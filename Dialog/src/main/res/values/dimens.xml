@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="jey_dialog_title_text_size">16sp</dimen>
+    <dimen name="jey_dialog_msg_text_size">14sp</dimen>
+    <dimen name="jey_dialog_button_text_size">14sp</dimen>
+</resources>

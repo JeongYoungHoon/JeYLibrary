@@ -1,0 +1,61 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:statusBarColor" tools:targetApi="21">?attr/colorPrimaryDark</item>
+    </style>
+    <style name="jey_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:statusBarColor" tools:targetApi="21">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="TranslucentTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:actionBarStyle" tools:targetApi="14">@style/NormalActionBar</item>
+        <item name="android:colorPrimary" tools:targetApi="21">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark" tools:targetApi="21">@color/colorPrimaryDark</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@color/colorJeY</item>
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="JeYTranslucentTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:actionBarStyle" tools:targetApi="14">@style/JeYActionBar</item>
+        <item name="android:colorPrimary" tools:targetApi="21">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark" tools:targetApi="21">@color/colorPrimaryDark</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@color/colorJeY</item>
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="JeYActionBar" tools:targetApi="14" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+
+        <item name="android:background">@color/colorJeY</item>
+
+    </style>
+    <style name="NormalActionBar" tools:targetApi="14" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+
+        <item name="android:background">@color/colorPrimaryDark</item>
+
+    </style>
+
+    <style name="JeYDialogRootStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_corner_dialog_white</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">10dip</item>
+    </style>
+    <style name="loading">
+        <item name="android:indeterminateDrawable">@drawable/tdialog_progress_ani</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">400</item>
+    </style>
+    <style name="jey_loading">
+        <item name="android:indeterminateDrawable">@drawable/jey_progress_ani</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">400</item>
+    </style>
+
+</resources>

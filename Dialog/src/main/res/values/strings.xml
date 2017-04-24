@@ -1,0 +1,12 @@
+<resources>
+    <string name="close">Close</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="kakaotalk">KakaoTalk</string>
+    <string name="mail">Mail</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="recent_version">Recent</string>
+    <string name="current_version">Current</string>
+    <string name="version_info">Version Info</string>
+    <string name="update">Update</string>
+</resources>

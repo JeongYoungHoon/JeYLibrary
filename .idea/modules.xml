@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Based/Based.iml" filepath="$PROJECT_DIR$/Based/Based.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dialog/Dialog.iml" filepath="$PROJECT_DIR$/Dialog/Dialog.iml" />
       <module fileurl="file://$PROJECT_DIR$/JeYLibrary.iml" filepath="$PROJECT_DIR$/JeYLibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Notice/Notice.iml" filepath="$PROJECT_DIR$/Notice/Notice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Total/Total.iml" filepath="$PROJECT_DIR$/Total/Total.iml" />
+      <module fileurl="file://$PROJECT_DIR$/View/View.iml" filepath="$PROJECT_DIR$/View/View.iml" />
     </modules>
   </component>
 </project>

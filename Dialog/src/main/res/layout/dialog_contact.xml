@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="20dip"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/JeYDialogRootStyle">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/colorWhite"
+            android:id="@+id/title_layout">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/jey_dialog_title_text_size"
+                android:textColor="@color/colorBlack"
+                android:padding="5dip"
+                android:gravity="center"
+                android:text="@string/contact_us"
+                android:textStyle="bold"
+                android:id="@+id/title_tv"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dip"
+            android:gravity="center"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/jey_dialog_button_text_size"
+                android:gravity="center"
+                android:minEms="8"
+                android:text="@string/kakaotalk"
+                android:textColor="@color/colorBlack"
+                android:padding="5dip"
+                android:background="@color/colorTr"
+                android:clickable="true"
+                android:id="@+id/kakaotalk"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dip"
+                android:background="@color/colorGrayLight"
+                android:layout_marginTop="5dip"
+                android:layout_marginBottom="5dip"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:textSize="@dimen/jey_dialog_button_text_size"
+                android:gravity="center"
+                android:text="@string/mail"
+                android:textColor="@color/colorBlack"
+                android:background="@color/colorTr"
+                android:clickable="true"
+                android:minEms="8"
+                android:id="@+id/mail"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

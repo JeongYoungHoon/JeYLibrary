@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/JeYDialogRootStyle" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/colorWhite"
+            android:padding="0dip">
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="@dimen/jey_dialog_title_text_size"
+                android:text="@string/version_info"
+                android:textColor="@color/colorBlack"
+                android:gravity="center"
+                android:padding="5dip"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="0dip">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="@string/current_version"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/jey_dialog_msg_text_size"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/app_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/jey_dialog_msg_text_size"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="@string/recent_version"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/jey_dialog_msg_text_size"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/new_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/jey_dialog_msg_text_size"
+                android:textStyle="normal" />
+        </LinearLayout>
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dip"-->
+            <!--android:layout_marginTop="5dip"-->
+            <!--android:background="@color/tdialog_tblue"-->
+            <!--android:layout_marginBottom="10dip"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="0dp"
+            android:background="@color/colorTr"
+            android:id="@+id/update_btn"
+            android:padding="10dip"
+            android:text="@string/update"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/jey_dialog_button_text_size"
+            android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

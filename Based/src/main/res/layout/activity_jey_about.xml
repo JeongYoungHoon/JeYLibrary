@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2015. WeNoun™. TANSAN, Since 2014.
+  ~ Code By Jey.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#AA000000"
+    android:onClick="clickRoot">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dip"-->
+        <!--android:layout_weight="0"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:gravity="right">-->
+        <!--<ImageView-->
+            <!--android:clickable="true"-->
+            <!--android:layout_width="50dip"-->
+            <!--android:layout_height="50dip"-->
+            <!--android:padding="5dip"-->
+            <!--android:src="@drawable/ic_48dp_white_exit"-->
+            <!--android:onClick="exitAct"/>-->
+        <!--</LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dip"
+            android:src="@drawable/jey_logo"
+            android:padding="10dip"
+            android:layout_margin="10dip"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="goHomepage"
+            android:gravity="center"
+            android:textColor="#FFFFFFFF"
+            android:text="http://www.jey-dev.com"
+            android:layout_margin="10dip"
+            android:textSize="20sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="10dip">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FFFFFFFF"
+                android:text="@string/jey_about_normal_contact"/>
+            <View
+                android:layout_width="10dip"
+                android:layout_height="1dip"
+                android:background="#00FFFFFF"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FFFFFFFF"
+                android:clickable="true"
+                android:onClick="sendNorContact"
+                android:text="info@jey-dev.com"/>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="10dip">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FFFFFFFF"
+                android:text="@string/jey_about_billing_contact"/>
+            <View
+                android:layout_width="10dip"
+                android:layout_height="1dip"
+                android:background="#00FFFFFF"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FFFFFFFF"
+                android:clickable="true"
+                android:onClick="sendBilContact"
+                android:text="billing@jey-dev.com"/>
+        </LinearLayout>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="10dip">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"
+                android:text="Copyright(c) by JeY since 2013."/>
+        </LinearLayout>
+
+
+</LinearLayout>

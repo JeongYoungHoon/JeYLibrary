@@ -8,7 +8,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/Based" />
+            <option value="$PROJECT_DIR$/Dialog" />
+            <option value="$PROJECT_DIR$/Notice" />
+            <option value="$PROJECT_DIR$/Total" />
+            <option value="$PROJECT_DIR$/View" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
