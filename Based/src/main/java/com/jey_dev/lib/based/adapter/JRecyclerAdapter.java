@@ -8,6 +8,8 @@ import com.jey_dev.lib.based.JObject;
 
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by JeyHoon on 2016. 11. 28..
  */
@@ -122,6 +124,7 @@ public abstract class JRecyclerAdapter<VH extends JRecyclerAdapter.JViewHolder, 
             super(itemView);
             this.itemView=itemView;
             rootView=itemView;
+            ButterKnife.bind(this, itemView);
         }
 
         public View getRootView(){return rootView;}

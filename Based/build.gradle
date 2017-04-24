@@ -8,12 +8,12 @@ apply plugin: 'com.novoda.bintray-release'
 publish {
     userOrg = 'jeyechoo'
     groupId = 'com.jey_dev'
-    artifactId = 'JeYBasedLibrary'
+    artifactId = 'JeYLibrary-based'
     publishVersion = JEY_LIBRARY_VERSION
     desc = ''
-    website = "https://github.com/JeongYoungHoon/${artifactId}"
-    issueTracker = "${website}/issues"
-    repository = "${website}.git"
+    website = "https://github.com/JeongYoungHoon/JeYLibrary/tree/master/Based"
+    issueTracker = "https://github.com/JeongYoungHoon/JeYLibrary/issues"
+    repository = "https://github.com/JeongYoungHoon/JeYLibrary.git"
 }
 
 android {
@@ -46,5 +46,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.tsengvn:typekit:1.0.1'
+    compile 'com.jakewharton:butterknife:8.5.1'
     testCompile 'junit:junit:4.12'
 }

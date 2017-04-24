@@ -8,12 +8,12 @@ apply plugin: 'com.novoda.bintray-release'
 publish {
     userOrg = 'jeyechoo'
     groupId = 'com.jey_dev'
-    artifactId = 'JeYViewLibrary'
+    artifactId = 'JeYLibrary-view'
     publishVersion = JEY_LIBRARY_VERSION
     desc = ''
-    website = "https://github.com/JeongYoungHoon/${artifactId}"
-    issueTracker = "${website}/issues"
-    repository = "${website}.git"
+    website = "https://github.com/JeongYoungHoon/JeYLibrary/tree/master/View"
+    issueTracker = "https://github.com/JeongYoungHoon/JeYLibrary/issues"
+    repository = "https://github.com/JeongYoungHoon/JeYLibrary.git"
 }
 
 android {

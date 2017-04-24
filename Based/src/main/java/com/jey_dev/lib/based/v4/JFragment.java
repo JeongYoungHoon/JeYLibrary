@@ -22,6 +22,9 @@ import com.jey_dev.lib.based.JActivity;
 import com.jey_dev.lib.based.JError;
 import com.jey_dev.lib.based.util.JUtil;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 //import android.app.Fragment;
 
 /**
@@ -31,6 +34,7 @@ public abstract class JFragment extends Fragment {
     protected Activity parentAct=null;
     protected Context ctx=null;
     protected static View root=null;
+    private Unbinder unbinder;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +61,7 @@ public abstract class JFragment extends Fragment {
     public void setRoot(int resId, LayoutInflater inflater, ViewGroup container){
         try {
             root = inflater.inflate(resId, container, false);
+            unbinder=ButterKnife.bind(this, root);
         }catch(Exception e){e.printStackTrace();}
     }
 
@@ -93,6 +98,21 @@ public abstract class JFragment extends Fragment {
      */
     protected void setOnClickListener(int viewId, View.OnClickListener listener){
         findViewById(viewId).setOnClickListener(listener);
+    }
+
+    /**
+     * Called when the view previously created by {@link #onCreateView} has
+     * been detached from the fragment.  The next time the fragment needs
+     * to be displayed, a new view will be created.  This is called
+     * after {@link #onStop()} and before {@link #onDestroy()}.  It is called
+     * <em>regardless</em> of whether {@link #onCreateView} returned a
+     * non-null view.  Internally it is called after the view's state has
+     * been saved but before it has been removed from its parent.
+     */
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     public void startAct(Class<?> cls){
