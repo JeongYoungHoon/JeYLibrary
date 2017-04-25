@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 
+//import butterknife.ButterKnife;
+
 /**
  * Created by JeyHoon on 2016. 11. 28..
  */
@@ -114,6 +116,14 @@ public abstract class JRecyclerAdapter<VH extends JRecyclerAdapter.JViewHolder, 
     @Override
     public int getItemCount() {
         return dataList.size();
+    }
+
+    public void deleteItem(final int position){
+        dataList.remove(position);
+    }
+
+    public void removeItem(final int position){
+        deleteItem(position);
     }
 
 

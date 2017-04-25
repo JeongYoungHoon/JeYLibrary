@@ -9,13 +9,14 @@
     <LinearLayout
         style="@style/JeYDialogRootStyle">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="@color/colorWhite"
-            android:id="@+id/title_layout">
+            android:id="@+id/title_layout"
+            android:layout_gravity="center_horizontal">
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/jey_dialog_title_text_size"
                 android:textColor="@color/colorBlack"

@@ -30,9 +30,11 @@
         android:orientation="vertical"
         android:gravity="center">
         <ImageView
+            android:id="@+id/jey_about_logo_iv"
             android:layout_width="wrap_content"
             android:layout_height="150dip"
-            android:src="@drawable/jey_logo"
+            android:src="@drawable/jey_logo_white"
+            android:scaleType="centerInside"
             android:padding="10dip"
             android:layout_margin="10dip"/>
         <TextView

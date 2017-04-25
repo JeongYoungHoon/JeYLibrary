@@ -60,7 +60,7 @@ public abstract class JFragment extends Fragment {
     public void setRoot(int resId, LayoutInflater inflater, ViewGroup container) {
         try {
             root = inflater.inflate(resId, container, false);
-            unbinder=ButterKnife.bind(this, root);
+            unbinder= ButterKnife.bind(this, root);
         } catch (Exception e) {
             e.printStackTrace();
         }
