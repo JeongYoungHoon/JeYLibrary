@@ -21,8 +21,6 @@ import android.view.WindowManager;
 import com.jey_dev.lib.based.util.JUtil;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
-import butterknife.ButterKnife;
-
 
 /**
  * Created by JeyHoon on 16. 6. 19..
@@ -46,7 +44,7 @@ public class JActivity extends AppCompatActivity {
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
     }
 
     /**

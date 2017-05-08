@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 
 import com.jey_dev.lib.notice.activity.JeYNoticeActivity;
+import com.jey_dev.lib.notice.db.DB;
 import com.jey_dev.lib.notice.service.JeYNoticeService;
 
 
@@ -77,5 +78,8 @@ public class JeYNotice {
                 ctx.startActivity(new Intent(ctx, JeYNoticeActivity.class).putExtra(JeYNoticeConst.Key.APP_NAME, appName)
                         .putExtra(JeYNoticeConst.Key.IS_REALTIME,true).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         }
+    }
+    public static void delAllNotices(final Context ctx){
+        DB.Notice.delAll(ctx);
     }
 }

@@ -1,14 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-
+    <style name="JeYTheme" parent="JeYTheme.Base">
+        <item name="actionBarSize">50dip</item>
+    </style>
     <style name="JeYTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:actionBarSize">50dip</item>
+        <item name="android:actionBarSize" tools:targetApi="honeycomb">50dip</item>
         <item name="actionBarSize">50dip</item>
     </style>
     <style name="JeYTheme.NoStatus" parent="JeYTheme.Base">

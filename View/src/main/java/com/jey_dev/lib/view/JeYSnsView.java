@@ -75,7 +75,7 @@ public class JeYSnsView extends LinearLayout {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setData(Uri.parse("kakaoplus://plusfriend/friend/@tansandevteam"));
 //                intent.setData(Uri.parse("kakaostory://story/channel/@wenoun"));
-                intent.setData(Uri.parse("http://story.kakao.com/ch/wenoun/app"));
+                intent.setData(Uri.parse("http://story.kakao.com/ch/jeydevcompany/app"));
 //                intent.setData(Uri.parse("kakaostory://profiles/channels/@wenoun"));
 
                 startActivity(intent);

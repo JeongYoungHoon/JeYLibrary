@@ -68,4 +68,7 @@
         </attr>
         <attr name="uncheckWhite" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="JToggleButton">
+        <attr name="checked" format="boolean"/>
+    </declare-styleable>
 </resources>

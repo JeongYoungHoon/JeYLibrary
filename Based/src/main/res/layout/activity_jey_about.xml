@@ -45,6 +45,7 @@
             android:gravity="center"
             android:textColor="#FFFFFFFF"
             android:text="http://www.jey-dev.com"
+            android:textStyle="bold"
             android:layout_margin="10dip"
             android:textSize="20sp"/>
         <LinearLayout
@@ -96,6 +97,31 @@
                 android:clickable="true"
                 android:onClick="sendBilContact"
                 android:text="billing@jey-dev.com"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="10dip">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FFFFFFFF"
+                android:text="@string/jey_about_ad_contact"/>
+            <View
+                android:layout_width="10dip"
+                android:layout_height="1dip"
+                android:background="#00FFFFFF"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FFFFFFFF"
+                android:clickable="true"
+                android:onClick="sendAdContact"
+                android:text="ad@jey-dev.com"/>
         </LinearLayout>
         </LinearLayout>
     <LinearLayout

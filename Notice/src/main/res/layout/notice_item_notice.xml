@@ -39,7 +39,7 @@
             android:textColor="@color/colorGray"
             android:gravity="bottom"
             android:textSize="12sp"
-            android:text="15.01.01"/>
+            android:text=""/>
         <ImageView
             android:id="@+id/noti_title_down_btn"
             android:layout_width="50dip"
@@ -52,8 +52,8 @@
         </LinearLayout>
     <View
     android:layout_width="match_parent"
-    android:layout_height="1dip"
-    android:background="#FFD1D1D1"/>
+    android:layout_height="0.5dip"
+    android:background="@color/colorGrayLight"/>
 
     <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->

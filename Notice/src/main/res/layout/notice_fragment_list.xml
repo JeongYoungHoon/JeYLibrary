@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/list_listview"
-        android:dividerHeight="1dip"
+        android:dividerHeight="0dip"
         android:divider="@color/colorGrayLight"
         android:listSelector="@drawable/notice_list_selector"/>
 </LinearLayout>

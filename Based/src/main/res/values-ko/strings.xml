@@ -2,4 +2,5 @@
 <resources>
     <string name="jey_about_normal_contact">"일반 문의 : "</string>
     <string name="jey_about_billing_contact">"결제 문의 : "</string>
+    <string name="jey_about_ad_contact">"광고 문의 : "</string>
 </resources>

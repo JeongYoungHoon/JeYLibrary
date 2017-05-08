@@ -48,6 +48,9 @@ public class JeYAboutActivity extends JActivity {
     public void sendBilContact(View v){
         startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:billing@jey-dev.com")));
     }
+    public void sendAdContact(View v){
+        startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:ad@jey-dev.com")));
+    }
     public void clickRoot(View v){
         finish();
     }

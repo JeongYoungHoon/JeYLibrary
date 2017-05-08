@@ -97,7 +97,7 @@ public class NotiDataAdapter extends ArrayAdapter<Noti> {
 
         @Override
         public int compare(Noti object1, Noti object2) {
-            return sCollator.compare(object2.getDate(), object1.getDate());
+            return sCollator.compare(object2.getDateFull(), object1.getDateFull());
         }
     };
 

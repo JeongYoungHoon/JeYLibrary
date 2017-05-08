@@ -77,7 +77,7 @@ public class DbOpenHelper {
 		return mDB.insert(DataBases.CreateNotiDB._TABLENAME, null, values);
 	}
     public long insertColumn(Noti data){
-        return insertColumn(data.getNo(),data.getTitle(),data.getContentUrl(),data.getDate());
+        return insertColumn(data.getNo(),data.getTitle(),data.getContentUrl(),data.getDateFull());
     }
 	// Update DB
 	public boolean updateColumn(long id,int no,String title, String msg, String date) {
@@ -90,7 +90,7 @@ public class DbOpenHelper {
 				null) > 0;
 	}
     public boolean updateColumn(long id,Noti data){
-        return updateColumn(id,data.getNo(),data.getTitle(),data.getContentUrl(),data.getDate());
+        return updateColumn(id,data.getNo(),data.getTitle(),data.getContentUrl(),data.getDateFull());
     }
 
 	// Delete ID
@@ -207,7 +207,7 @@ public class DbOpenHelper {
 		ArrayList<Noti> arrlist = new ArrayList<Noti>();
 		while (c.moveToNext()) {
             int no=0;
-			String title="Title", msg="Msg", date="15.01.01";
+			String title="Title", msg="Msg", date="201501010000";
 			title = c.getString(c.getColumnIndex(DataBases.CreateNotiDB.TITLE));
 			msg = c.getString(c.getColumnIndex(DataBases.CreateNotiDB.MSG));
 			date = c.getString(c.getColumnIndex(DataBases.CreateNotiDB.DATE));
@@ -223,7 +223,7 @@ public class DbOpenHelper {
         ArrayList<Noti> arrlist = new ArrayList<Noti>();
         while (c.moveToNext()) {
             int no=0;
-            String title="Title", msg="Msg", date="15.01.01";
+            String title="Title", msg="Msg", date="201501010000";
             title = c.getString(c.getColumnIndex(DataBases.CreateNotiDB.TITLE));
             date = c.getString(c.getColumnIndex(DataBases.CreateNotiDB.DATE));
             no = c.getInt(c.getColumnIndex(DataBases.CreateNotiDB.NO));

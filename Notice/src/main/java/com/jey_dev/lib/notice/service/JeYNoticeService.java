@@ -47,7 +47,9 @@ public class JeYNoticeService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
     public void checkNotice() {
-        String url = "http://noti.wenoun.com/select_noti_max_no.php?app_name="+appName;
+//        String url = "http://noti.wenoun.com/select_noti_max_no.php?app_name="+appName;
+//        여기 max No PHP 작업 후에 해야함
+        String url = "http://jey-dev.com/notice/php/get_notice_max_no.php?target_app=" + appName+"&target_os=1";
         // Toast.makeText(SplashActivity.this, "ss", 0).show();
         // 스레드 객체를 생성해서 작업을 시킨다.
         GetJSONThread thread = new GetJSONThread(new Handler(){
@@ -55,33 +57,37 @@ public class JeYNoticeService extends Service {
                 switch(msg.what){
                     case 2:
                         String jsonStr1 = (String) msg.obj;
-                        jsonStr1 = jsonStr1.replace("]", "");
-                        jsonStr1 = jsonStr1.replace("[", "");
+//                        jsonStr1 = jsonStr1.replace("]", "");
+//                        jsonStr1 = jsonStr1.replace("[", "");
 
                         // Toast.makeText(SplashActivity.this, jsonStr1, 0).show();
                         try {
 
-                            String result;
+                            int result=0;
                             JSONObject jsonObj = new JSONObject(jsonStr1);
                             // JSONArray 객체 얻어오기
-                            result=jsonObj.getString("result");
+                            result=jsonObj.getInt("result");
                             Log.d("NotiAct", jsonObj.toString() + "");
                             //JSONArray jsonArray=new JSONArray(jsonStr1);
-                            if(result.equals("FINISH")){
-                                String maxNoStr=jsonObj.getString("max_no");
-                                int maxNo=0;
-                                try{
-                                    maxNo= Integer.parseInt(maxNoStr);
-                                }catch(NumberFormatException e){
-                                    maxNo=0;
-                                }
-                                if(!DB.Notice.isNo(ctx,maxNo)){
-                                    getNotice();
-                                    LocalBroadcastManager.getInstance(ctx).sendBroadcast(new Intent().setAction(JeYNoticeConst.Action.NEW_NOTICE));
+                            if(result==1){
+                                JSONArray jArr=jsonObj.getJSONArray("data");
+                                if(jArr.length()>0) {
+                                    JSONObject obj=jArr.getJSONObject(0);
+                                    String maxNoStr = obj.getString("max_no");
+                                    int maxNo = 0;
+                                    try {
+                                        maxNo = Integer.parseInt(maxNoStr);
+                                    } catch (NumberFormatException e) {
+                                        maxNo = 0;
+                                    }
+                                    if (!DB.Notice.isNo(ctx, maxNo)) {
+                                        getNotice();
+                                        LocalBroadcastManager.getInstance(ctx).sendBroadcast(new Intent().setAction(JeYNoticeConst.Action.NEW_NOTICE));
 //                                    Util.NEW.setNewNotice(ctx,true);
-                                }else{
-                                    LocalBroadcastManager.getInstance(ctx).sendBroadcast(new Intent().setAction(JeYNoticeConst.Action.GET_NOTICE_FINISH));
-                                    stopSelf();
+                                    } else {
+                                        LocalBroadcastManager.getInstance(ctx).sendBroadcast(new Intent().setAction(JeYNoticeConst.Action.GET_NOTICE_FINISH));
+                                        stopSelf();
+                                    }
                                 }
 //                                DB.Notice.insertSyncNotiArray(ctx, arrlist);
                                 //Adapter=new NotiDataAdapter(ctx,arrlist);
@@ -121,8 +127,8 @@ public class JeYNoticeService extends Service {
                 case 2: // getJSON성공
 
                     String jsonStr1 = (String) msg.obj;
-                    jsonStr1 = jsonStr1.replace("]", "");
-                    jsonStr1 = jsonStr1.replace("[", "");
+//                    jsonStr1 = jsonStr1.replace("]", "");
+//                    jsonStr1 = jsonStr1.replace("[", "");
 
                     // Toast.makeText(SplashActivity.this, jsonStr1, 0).show();
                     try {

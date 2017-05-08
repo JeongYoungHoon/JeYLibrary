@@ -21,9 +21,6 @@ import android.view.WindowManager;
 
 import com.jey_dev.lib.based.util.JUtil;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 
 /**
  * Created by JeyHoon on 16. 6. 19..
@@ -33,7 +30,7 @@ public abstract class JFragment extends Fragment {
     protected Activity parentAct = null;
     protected Context ctx = null;
     protected static View root = null;
-    private Unbinder unbinder;
+//    private Unbinder unbinder;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,7 +57,7 @@ public abstract class JFragment extends Fragment {
     public void setRoot(int resId, LayoutInflater inflater, ViewGroup container) {
         try {
             root = inflater.inflate(resId, container, false);
-            unbinder= ButterKnife.bind(this, root);
+//            unbinder= ButterKnife.bind(this, root);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,7 +113,7 @@ public abstract class JFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
+//        unbinder.unbind();
     }
 
     public void startAct(Class<?> cls) {

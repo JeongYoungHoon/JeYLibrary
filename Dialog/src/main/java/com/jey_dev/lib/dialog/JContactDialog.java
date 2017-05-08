@@ -41,7 +41,7 @@ public class JContactDialog extends JBaseDialog {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(Intent.ACTION_VIEW);
-				intent.setData(Uri.parse("kakaoplus://plusfriend/friend/@tansandevteam"));
+				intent.setData(Uri.parse("kakaoplus://plusfriend/friend/@jeydevcompany"));
 				ctx.startActivity(intent);
 				dismiss();
 			}
@@ -50,7 +50,7 @@ public class JContactDialog extends JBaseDialog {
 			@Override
 			public void onClick(View v) {
 				Intent it = new Intent(Intent.ACTION_SEND);
-				String[] mailaddr = {"tansan.team@gmail.com","wenoun@wenoun.com"};
+				String[] mailaddr = {"tansan.team@gmail.com","info@jey-dev.com"};
 
 				it.setType("plaine/text");
 				it.putExtra(Intent.EXTRA_EMAIL, mailaddr); // 받는사람
