@@ -18,7 +18,7 @@
         <item name="android:colorPrimary" tools:targetApi="21">@color/colorPrimary</item>
         <item name="android:colorPrimaryDark" tools:targetApi="21">@color/colorPrimaryDark</item>
         <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
-        <item name="android:statusBarColor" tools:targetApi="21">@color/colorJeY</item>
+        <item name="android:statusBarColor" tools:targetApi="21">?attr/colorPrimary</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     <style name="JeYTranslucentTheme" parent="@android:style/Theme.Translucent.NoTitleBar">

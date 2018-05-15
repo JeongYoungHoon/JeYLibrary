@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,10 +22,10 @@ import java.util.List;
 public class JViewPager extends RelativeLayout {
     private int dotScaleType = JPagerIndicatorView.SCALE_NORMAL;
     private int dotColor = Color.BLACK;
-    private int dotCount = 2;
+    private int dotCount = 1;
     private boolean isStack = false;
     private boolean isTop = false;
-    private boolean isUncheckWhite=false;
+    private boolean isUncheckWhite = false;
     private Context ctx = null;
     private JPagerIndicatorView pagerIndicatorView = null;
     private ViewPager viewPager = null;
@@ -62,21 +61,24 @@ public class JViewPager extends RelativeLayout {
     public JViewPager(Context context) {
         super(context);
         ctx = context;
-        initView();
+        if (!isInEditMode())
+            initView();
     }
 
     public JViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
         getAttrs(attrs);
         ctx = context;
-        initView();
+        if (!isInEditMode())
+            initView();
     }
 
     public JViewPager(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         getAttrs(attrs, defStyleAttr);
         ctx = context;
-        initView();
+        if (!isInEditMode())
+            initView();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -95,7 +97,7 @@ public class JViewPager extends RelativeLayout {
         addView(root);
         pagerIndicatorView = (JPagerIndicatorView) root.findViewById(R.id.jviewpager_indicator);
         viewPager = (ViewPager) root.findViewById(R.id.jviewpager_viewpager);
-        pagerIndicatorView.setAttrs(dotScaleType, dotColor, dotCount, isStack,isUncheckWhite);
+        pagerIndicatorView.setAttrs(dotScaleType, dotColor, dotCount, isStack, isUncheckWhite);
         LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.CENTER_HORIZONTAL);
         if (isTop) {
@@ -110,30 +112,30 @@ public class JViewPager extends RelativeLayout {
     }
 
     private void getAttrs(AttributeSet attrs) {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.JPagerIndicatorView);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.JViewPager);
 
         setTypeArray(typedArray);
     }
 
     private void getAttrs(AttributeSet attrs, int defStyle) {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.JPagerIndicatorView, defStyle, 0);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.JViewPager, defStyle, 0);
         setTypeArray(typedArray);
 
     }
 
     private void getAttrs(AttributeSet attrs, int defStyle, int defStyleRes) {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.JPagerIndicatorView, defStyle, defStyleRes);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.JViewPager, defStyle, defStyleRes);
         setTypeArray(typedArray);
 
     }
 
     private void setTypeArray(TypedArray typedArray) {
-        isStack = typedArray.getBoolean(R.styleable.JPagerIndicatorView_isStack, false);
-        dotScaleType = typedArray.getInt(R.styleable.JPagerIndicatorView_scaleType, JPagerIndicatorView.SCALE_NORMAL);
-        dotCount = typedArray.getInt(R.styleable.JPagerIndicatorView_dotCount, 2);
-        dotColor = typedArray.getInt(R.styleable.JPagerIndicatorView_dotColor, Color.BLACK);
-        isTop = typedArray.getInt(R.styleable.JPagerIndicatorView_indicatorPosition, 0) == 0;
-        isUncheckWhite=typedArray.getBoolean(R.styleable.JPagerIndicatorView_uncheckWhite,false);
+        isStack = typedArray.getBoolean(R.styleable.JViewPager_isStack, false);
+        dotScaleType = typedArray.getInt(R.styleable.JViewPager_dotScaleType, JPagerIndicatorView.SCALE_NORMAL);
+        dotCount = typedArray.getInt(R.styleable.JViewPager_dotCount, 1);
+        dotColor = typedArray.getInt(R.styleable.JViewPager_dotColor, Color.BLACK);
+        isTop = typedArray.getInt(R.styleable.JViewPager_indicatorPosition, 0) == 0;
+        isUncheckWhite = typedArray.getBoolean(R.styleable.JViewPager_unCheckWhite, false);
         typedArray.recycle();
 
     }
@@ -168,7 +170,7 @@ public class JViewPager extends RelativeLayout {
         return viewPager.getCurrentItem();
     }
 
-    public void setCurrentItem(int position){
+    public void setCurrentItem(int position) {
         viewPager.setCurrentItem(position);
     }
 
@@ -178,14 +180,15 @@ public class JViewPager extends RelativeLayout {
 
     public static class JViewPagerAdapter extends PagerAdapter {
         private final List<View> viewList = new ArrayList<>();
-        private OnChildViewClickListener listener=new OnChildViewClickListener() {
+        private OnChildViewClickListener listener = new OnChildViewClickListener() {
             @Override
             public void onChildClick(View v, int position) {
 
             }
         };
-        public void setOnChildViewClickListener(OnChildViewClickListener listener){
-            this.listener=listener;
+
+        public void setOnChildViewClickListener(OnChildViewClickListener listener) {
+            this.listener = listener;
         }
 //        private final List<String> mFragmentTitleList = new ArrayList<>();
 
@@ -219,6 +222,7 @@ public class JViewPager extends RelativeLayout {
         public void addView(View view) {
             viewList.add(view);
         }
+
         @Override
         public Object instantiateItem(View pager, final int position) {
             View v = viewList.get(position);
@@ -238,13 +242,14 @@ public class JViewPager extends RelativeLayout {
             v.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onChildClick(v,position);
+                    listener.onChildClick(v, position);
                 }
             });
             ((ViewPager) pager).addView(v, 0);
 
             return v;
         }
+
         @Override
         public void destroyItem(View pager, int position, Object view) {
             ((ViewPager) pager).removeView((View) view);

@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -24,7 +25,7 @@ public class JPagerIndicatorView extends LinearLayout {
 
     private int scaleType=SCALE_NORMAL;
     private int dotColor= Color.BLACK;
-    private int dotCount=2;
+    private int dotCount=1;
     private boolean isStack=false;
     private Context ctx=null;
 
@@ -44,6 +45,7 @@ public class JPagerIndicatorView extends LinearLayout {
         initView();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     public JPagerIndicatorView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         getAttrs(attrs,defStyleAttr);
@@ -102,10 +104,10 @@ public class JPagerIndicatorView extends LinearLayout {
     }
     private void setTypeArray(TypedArray typedArray) {
         isStack = typedArray.getBoolean(R.styleable.JPagerIndicatorView_isStack,false);
-        scaleType = typedArray.getInt(R.styleable.JPagerIndicatorView_scaleType, SCALE_NORMAL);
-        dotCount = typedArray.getInt(R.styleable.JPagerIndicatorView_dotCount,2);
+        scaleType = typedArray.getInt(R.styleable.JPagerIndicatorView_dotScaleType, SCALE_NORMAL);
+        dotCount = typedArray.getInt(R.styleable.JPagerIndicatorView_dotCount,1);
         dotColor = typedArray.getInt(R.styleable.JPagerIndicatorView_dotColor, Color.BLACK);
-        isUncheckWhite=typedArray.getBoolean(R.styleable.JPagerIndicatorView_uncheckWhite,false);
+        isUncheckWhite=typedArray.getBoolean(R.styleable.JPagerIndicatorView_unCheckWhite,false);
         typedArray.recycle();
 
     }
@@ -131,7 +133,9 @@ public class JPagerIndicatorView extends LinearLayout {
         params.setMargins(padding,padding,padding,padding);
         View view=new View(ctx);
         view.setLayoutParams(params);
+        if(JImageUtils.isOverAPI16())
         view.setBackground(drawable);
+        else view.setBackgroundDrawable(drawable);
         return view;
     }
     public void setSelectPosition(int position){
@@ -196,17 +200,25 @@ public class JPagerIndicatorView extends LinearLayout {
         for(int i=0; i<dotCount;i++) {
             if(i<=nowPosition) {
                 if (isStack) {
-                    views.get(i).setBackground(getCheckedDrawable());
+                    if(JImageUtils.isOverAPI16())
+                        views.get(i).setBackground(getCheckedDrawable());
+                    else
+                        views.get(i).setBackgroundDrawable(getCheckedDrawable());
                     continue;
                 } else if(i==nowPosition) {
-                    views.get(i).setBackground(getCheckedDrawable());
+                    if(JImageUtils.isOverAPI16())
+                        views.get(i).setBackground(getCheckedDrawable());
+                    else
+                        views.get(i).setBackgroundDrawable(getCheckedDrawable());
                     continue;
                 }
                 else{
 
                 }
             }
-            views.get(i).setBackground(getUnCheckedDrawable());
+            if(JImageUtils.isOverAPI16())
+                views.get(i).setBackground(getUnCheckedDrawable());
+            else views.get(i).setBackgroundDrawable(getUnCheckedDrawable());
         }
     }
 }

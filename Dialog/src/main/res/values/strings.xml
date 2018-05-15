@@ -9,4 +9,13 @@
     <string name="current_version">Current</string>
     <string name="version_info">Version Info</string>
     <string name="update">Update</string>
+    <string name="permission_sms_name" translatable="false">SMS</string>
+    <string name="permission_call_name">Phone Call</string>
+    <string name="permission_camera_name">Camera</string>
+    <string name="permission_location_name">Location</string>
+    <string name="permission_storage_name">Storage</string>
+    <string name="permission_necessary">(Necessary)</string>
+    <string name="permission_select">(Select)</string>
+    <string name="agree">Agree</string>
+
 </resources>

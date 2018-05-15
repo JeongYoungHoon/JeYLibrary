@@ -19,6 +19,8 @@ public class JFloatingActionButton extends android.support.v7.widget.AppCompatIm
     public static final int SCALE_NORMAL = 0;
     public static final int SCALE_MINI = 1;
     public static final int SCALE_BIG = 2;
+    public static final int SCALE_CUSTOM = 3;
+    private int customSize=0;
     private int scaleType = SCALE_NORMAL;
     private int tintColor = Color.parseColor("#FF006934");
     private int imgPadding = 10;
@@ -70,6 +72,8 @@ public class JFloatingActionButton extends android.support.v7.widget.AppCompatIm
             case SCALE_BIG:
                 size = big;
                 break;
+            case SCALE_CUSTOM:
+                size=customSize;
         }
         setMeasuredDimension(size, size);
     }
@@ -132,12 +136,23 @@ public class JFloatingActionButton extends android.support.v7.widget.AppCompatIm
         scaleType = typedArray.getInt(R.styleable.JFloatingActionButton_scaleType, SCALE_NORMAL);
         tintColor = typedArray.getColor(R.styleable.JFloatingActionButton_tintColor, Color.parseColor("#FF006934"));
         imgPadding = typedArray.getDimensionPixelSize(R.styleable.JFloatingActionButton_imgPadding, JImageUtils.dpToPx(ctx, 10));
+        customSize = typedArray.getDimensionPixelSize(R.styleable.JFloatingActionButton_customSize, JImageUtils.dpToPx(ctx, 64));
         typedArray.recycle();
 
     }
 
     public JFloatingActionButton setScaleType(int scaleType) {
         this.scaleType = scaleType;
+        return this;
+    }
+
+    public JFloatingActionButton setCustomSize(int customSize){
+        this.customSize=customSize;
+        return this;
+    }
+
+    public JFloatingActionButton setImgPadding(int imgPadding){
+        this.imgPadding=imgPadding;
         return this;
     }
 

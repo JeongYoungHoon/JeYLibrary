@@ -1,5 +1,6 @@
 package com.jey_dev.lib.dialog;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -42,7 +43,11 @@ public class JContactDialog extends JBaseDialog {
 			public void onClick(View v) {
 				Intent intent = new Intent(Intent.ACTION_VIEW);
 				intent.setData(Uri.parse("kakaoplus://plusfriend/friend/@jeydevcompany"));
-				ctx.startActivity(intent);
+				try {
+					ctx.startActivity(intent);
+				}catch(ActivityNotFoundException anfe){
+					anfe.printStackTrace();
+				}
 				dismiss();
 			}
 		});
@@ -76,6 +81,12 @@ public class JContactDialog extends JBaseDialog {
 				it.putExtra(Intent.EXTRA_SUBJECT, "["+appName+"]"+title); // 제목
 				it.putExtra(Intent.EXTRA_TEXT, "\n\n"+msg+"\n\n"); // 첨부내용
 				ctx.startActivity(it);
+			}
+		});
+		findViewById(R.id.jey_contact_root).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				cancel();
 			}
 		});
 	}

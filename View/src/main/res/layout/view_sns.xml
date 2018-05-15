@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:padding="10dip">
+    android:padding="0dip">
 
     <com.jey_dev.lib.view.JFloatingActionButton
         android:id="@+id/sns_facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dip"
+        android:layout_margin="8dip"
         android:src="@drawable/ic_jey_sns_fb"
         tview:scaleType="normal"
         tview:tintColor="#FF2d4485"/>
@@ -19,7 +19,7 @@
         android:id="@+id/sns_kakao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dip"
+        android:layout_margin="8dip"
         android:src="@drawable/ic_jey_sns_kakao"
         tview:scaleType="normal"
         tview:tintColor="#FFffeb00"/>
@@ -27,7 +27,7 @@
         android:id="@+id/sns_web"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dip"
+        android:layout_margin="8dip"
         android:src="@drawable/ic_jey_sns_public"
         tview:scaleType="normal"
         tview:tintColor="#ff006934"/>
@@ -35,7 +35,7 @@
         android:id="@+id/sns_market"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dip"
+        android:layout_margin="8dip"
         android:src="@drawable/ic_jey_sns_jey"
         tview:scaleType="normal"
         tview:tintColor="#FF006934"/>

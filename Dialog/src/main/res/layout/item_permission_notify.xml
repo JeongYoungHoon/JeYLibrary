@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dip">
+
+            <ImageView
+                android:id="@+id/item_permission_ic"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center_vertical"
+                android:src="@drawable/ic_sms_dark_gray_24dp" />
+
+            <TextView
+                android:id="@+id/item_permission_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:gravity="center_vertical"
+                android:text="PermissionName"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/item_permission_necessary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:text="@string/permission_necessary"
+                android:textColor="@color/colorRed"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/item_permission_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/colorGrayDark"
+            android:paddingTop="2dp"
+            android:paddingBottom="8dp"
+            android:text="Permission Desc"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorGrayLight"/>
+    </LinearLayout>
+</LinearLayout>

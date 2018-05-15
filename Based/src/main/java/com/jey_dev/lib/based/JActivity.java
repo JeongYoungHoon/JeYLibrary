@@ -21,6 +21,8 @@ import android.view.WindowManager;
 import com.jey_dev.lib.based.util.JUtil;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
+import org.json.JSONObject;
+
 
 /**
  * Created by JeyHoon on 16. 6. 19..
@@ -74,6 +76,23 @@ public class JActivity extends AppCompatActivity {
     protected Object getIntentValue(@NonNull String key, Object initValue){
         return getIntentValue(getIntent(),key,initValue);
     }
+
+    protected JeYSONObject getIntentValue(@NonNull String key, JeYSONObject initValue){
+        return getIntentValue(getIntent(),key,initValue);
+    }
+
+    protected JSONObject getIntentValue(@NonNull String key, JSONObject initValue){
+        return getIntentValue(getIntent(),key,initValue);
+    }
+
+    protected JeYSONObject getIntentJeYSONObject(@NonNull String key){
+        return getIntentJeYSONObject(getIntent(),key);
+    }
+
+    protected JSONObject getIntentJSONObject(@NonNull String key){
+        return getIntentJSONObject(getIntent(),key);
+    }
+
     protected static String getIntentValue(@NonNull Intent intent, @NonNull String key, String initValue){
         if(intent.hasExtra(key))
             return intent.getExtras().getString(key);
@@ -103,6 +122,28 @@ public class JActivity extends AppCompatActivity {
             return intent.getExtras().get(key);
         else
             return initValue;
+    }
+
+    protected static JeYSONObject getIntentValue(@NonNull Intent intent, @NonNull String key, JeYSONObject initValue){
+        Object obj=getIntentValue(intent,key,(Object)initValue);
+        if(null!=obj&&obj instanceof JeYSONObject)
+            return (JeYSONObject)obj;
+        else return initValue;
+    }
+
+    protected static JSONObject getIntentValue(@NonNull Intent intent, @NonNull String key, JSONObject initValue){
+        Object obj=getIntentValue(intent,key,(Object)initValue);
+        if(null!=obj&&obj instanceof JSONObject)
+            return (JeYSONObject)obj;
+        else return initValue;
+    }
+
+    protected static JeYSONObject getIntentJeYSONObject(@NonNull Intent intent, @NonNull String key){
+        return getIntentValue(intent,key,new JeYSONObject());
+    }
+
+    protected static JSONObject getIntentJSONObject(@NonNull Intent intent, @NonNull String key){
+        return getIntentValue(intent,key,new JSONObject());
     }
     /*
      * Get Values By Intent End.

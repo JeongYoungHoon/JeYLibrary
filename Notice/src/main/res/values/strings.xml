@@ -1,3 +1,4 @@
 <resources>
     <string name="notice">Notice</string>
+    <string name="notice_empty">The notice does not exist.</string>
 </resources>

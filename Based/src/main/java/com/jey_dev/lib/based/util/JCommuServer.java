@@ -9,6 +9,8 @@ import android.util.Log;
 
 import com.jey_dev.lib.based.JError;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -27,8 +29,8 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
     public static final int FAILED = OnCommuListener.FAILED;
     public static final int SUCCESS = OnCommuListener.SUCCESS;
     private Dialog progressDialog = null;
-    private boolean isPost=false;
-    private String params="";
+    private boolean isPost = false;
+    private String params = "";
 
     /**
      * Runs on the UI thread before {@link #doInBackground}.
@@ -67,11 +69,11 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
             if (conn != null) {//정상접속이 되었다면
                 conn.setConnectTimeout(1000);//최대 대기시간10초
                 conn.setUseCaches(false);//캐쉬사용안함
-                if(isPost){
+                if (isPost) {
                     conn.setRequestMethod("POST");
                     conn.setDoInput(true);
                     conn.setDoOutput(true);
-                    OutputStream os=conn.getOutputStream();
+                    OutputStream os = conn.getOutputStream();
                     os.write(this.params.getBytes());
                     os.flush();
                     os.close();
@@ -107,7 +109,7 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
             msg = handler.obtainMessage();
             msg.what = FAILED; //실패
             msg.obj = "No response.";
-            handler.sendMessage(msg);
+//            handler.sendMessage(msg);
 //            return msg;
         } finally {
             if (null != conn)
@@ -177,11 +179,20 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
 
                         }
                         // JSONArray 객체 얻어오기
+                    } catch (JSONException je) {
+                        je.printStackTrace();
+                        try {
+                            sendSuccess(new JSONObject().put("array",new JSONArray(jsonStr1)));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            sendFailed("ERROR#444", "JSON Data has Exception");
+                        }
+//                        sendFailed("ERROR#444", "JSON Data has Exception");
 
                     } catch (Exception e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
-                        sendFailed("ERROR#444", "JSON Data has Exception");
+                        sendFailed("ERROR#449", e.getMessage() != null ? e.getMessage() : "??");
                     }
                     break;
                 case FAILED:
@@ -196,21 +207,22 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
     }
 
     public JCommuServer(String url, OnCommuListener checkHandler) {
-        this(url,checkHandler,false);
+        this(url, checkHandler, false);
     }
 
     public JCommuServer(String url, OnCommuListener checkHandler, boolean isPost) {
         this.checkHandler = checkHandler;
         this.url = url;
-        this.isPost=isPost;
+        this.isPost = isPost;
     }
 
     public JCommuServer(String url, OnCommuListener checkHandler, JSONObject obj) {
         this(url, checkHandler);
         setParam(obj);
     }
+
     public JCommuServer(String url, OnCommuListener checkHandler, JSONObject obj, boolean isPost) {
-        this(url, checkHandler,isPost);
+        this(url, checkHandler, isPost);
         setParam(obj);
     }
 
@@ -222,8 +234,8 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
     }
 
     public JCommuServer addParam(String key, String value) {
-        if(isPost)
-            this.params=this.params+ "&" + key + "=" + value;
+        if (isPost)
+            this.params = this.params + "&" + key + "=" + value;
         else
             this.url = this.url + "&" + key + "=" + value;
 
@@ -231,43 +243,45 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
     }
 
     public JCommuServer addParam(String key, boolean value) {
-        if(isPost)
-            this.params=this.params+ "&" + key + "=" + value;
+        if (isPost)
+            this.params = this.params + "&" + key + "=" + value;
         else
-        this.url = this.url + "&" + key + "=" + value;
+            this.url = this.url + "&" + key + "=" + value;
         return this;
     }
 
     public JCommuServer addParam(String key, int value) {
-        if(isPost)
-            this.params=this.params+ "&" + key + "=" + String.valueOf(value);
+        if (isPost)
+            this.params = this.params + "&" + key + "=" + String.valueOf(value);
         else
-        this.url = this.url + "&" + key + "=" + String.valueOf(value);
+            this.url = this.url + "&" + key + "=" + String.valueOf(value);
         return this;
     }
 
     public JCommuServer addParam(String key, long value) {
-        if(isPost)
-            this.params=this.params+ "&" + key + "=" + String.valueOf(value);
+        if (isPost)
+            this.params = this.params + "&" + key + "=" + String.valueOf(value);
         else
-        this.url = this.url + "&" + key + "=" + String.valueOf(value);
+            this.url = this.url + "&" + key + "=" + String.valueOf(value);
         return this;
     }
 
     public JCommuServer addParam(String key, float value) {
-        if(isPost)
-            this.params=this.params+ "&" + key + "=" + String.valueOf(value);
+        if (isPost)
+            this.params = this.params + "&" + key + "=" + String.valueOf(value);
         else
-        this.url = this.url + "&" + key + "=" + String.valueOf(value);
+            this.url = this.url + "&" + key + "=" + String.valueOf(value);
         return this;
     }
 
     public JCommuServer addParamUTF8(String key, String value) {
         return addParam(key, value, "UTF-8");
     }
+
     public JCommuServer addParamUTF8(String key, int value) {
         return addParam(key, value, "UTF-8");
     }
+
     public JCommuServer addParamUTF8(String key, long value) {
         return addParam(key, value, "UTF-8");
     }
@@ -279,12 +293,13 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
         } catch (Exception e) {
             value = $value;
         }
-        if(isPost)
-            this.params=this.params+ "&" + key + "=" + value;
+        if (isPost)
+            this.params = this.params + "&" + key + "=" + value;
         else
-        this.url = this.url + "&" + key + "=" + value;
+            this.url = this.url + "&" + key + "=" + value;
         return this;
     }
+
     public JCommuServer addParam(String key, int $value, String charSet) {
         String value = String.valueOf($value);
         try {
@@ -292,12 +307,13 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
         } catch (Exception e) {
             value = String.valueOf($value);
         }
-        if(isPost)
-            this.params=this.params+ "&" + key + "=" + value;
+        if (isPost)
+            this.params = this.params + "&" + key + "=" + value;
         else
-        this.url = this.url + "&" + key + "=" + value;
+            this.url = this.url + "&" + key + "=" + value;
         return this;
     }
+
     public JCommuServer addParam(String key, long $value, String charSet) {
         String value = String.valueOf($value);
         try {
@@ -305,12 +321,13 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
         } catch (Exception e) {
             value = String.valueOf($value);
         }
-        if(isPost)
-            this.params=this.params+ "&" + key + "=" + value;
+        if (isPost)
+            this.params = this.params + "&" + key + "=" + value;
         else
-        this.url = this.url + "&" + key + "=" + value;
+            this.url = this.url + "&" + key + "=" + value;
         return this;
     }
+
     public JCommuServer addParam(String key, float $value, String charSet) {
         String value = String.valueOf($value);
         try {
@@ -318,10 +335,10 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
         } catch (Exception e) {
             value = String.valueOf($value);
         }
-        if(isPost)
-            this.params=this.params+ "&" + key + "=" + value;
+        if (isPost)
+            this.params = this.params + "&" + key + "=" + value;
         else
-        this.url = this.url + "&" + key + "=" + value;
+            this.url = this.url + "&" + key + "=" + value;
         return this;
     }
 //
@@ -377,8 +394,8 @@ public class JCommuServer extends AsyncTask<String, Void, Message> {
         }
     }
 
-    public JCommuServer setProgressDialog(final Dialog progressDialog){
-        this.progressDialog=progressDialog;
+    public JCommuServer setProgressDialog(final Dialog progressDialog) {
+        this.progressDialog = progressDialog;
         return this;
     }
 }

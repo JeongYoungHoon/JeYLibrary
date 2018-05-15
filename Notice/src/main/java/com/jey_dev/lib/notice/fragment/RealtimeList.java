@@ -30,6 +30,7 @@ public class RealtimeList extends BaseFragment {
 
     private static View root;
     private ListView listView;
+    private View emptyView;
 //    protected ArrayList<Noti> arrlist = new ArrayList<Noti>();
     private NotiDataAdapter Adapter=null;
     @Nullable
@@ -40,6 +41,7 @@ public class RealtimeList extends BaseFragment {
         }catch(Exception e){
 
         }
+        emptyView=root.findViewById(R.id.notice_empty_view);
         listView=(ListView)root.findViewById(R.id.list_listview);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -106,6 +108,13 @@ public class RealtimeList extends BaseFragment {
                                 if(null!=Adapter) Adapter.clear();
                                 Adapter=new NotiDataAdapter(ctx,arrlist);
                                 listView.setAdapter(Adapter);
+                                if(Adapter.getCount()>0){
+                                    emptyView.setVisibility(View.GONE);
+                                    listView.setVisibility(View.VISIBLE);
+                                }else{
+                                    emptyView.setVisibility(View.VISIBLE);
+                                    listView.setVisibility(View.GONE);
+                                }
 //                                scrollView.addView(DB.Notice.getView(ctx));
                                 //Adapter=new NotiDataAdapter(ctx,arrlist);
                                 //listView.setAdapter(Adapter);

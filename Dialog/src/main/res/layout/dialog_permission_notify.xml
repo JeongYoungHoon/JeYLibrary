@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrayDark"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="25dip">
+
+    <LinearLayout
+        style="@style/JeYDialogRootStyle"
+        android:layout_width="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dialog_permission_notify_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/dialog_permission_notify_agree"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:gravity="center"
+            android:textColor="@color/colorRed"
+            android:text="@string/agree"/>
+    </LinearLayout>
+
+</LinearLayout>

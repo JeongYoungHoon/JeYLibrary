@@ -62,5 +62,14 @@ public class JUtil {
         return Build.VERSION.SDK_INT >= 21;
     }
 
+    /**
+     * Over Api Version 16.
+     *
+     * @return true is Over 16, false is Under 16.
+     */
+    public static boolean isOverJ() {
+        return Build.VERSION.SDK_INT >= 16;
+    }
+
 
 }

@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -46,6 +47,7 @@ public class JIconButton extends LinearLayout {
         initView();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     public JIconButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         ctx=context;
@@ -101,7 +103,11 @@ public class JIconButton extends LinearLayout {
 
     public void setBackgroundColor(int backgroundColor){
         this.backgroundColor=backgroundColor;
-        setBackground(getBackgroundDrawable());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            setBackground(getBackgroundDrawable());
+        }else{
+            setBackgroundDrawable(getBackgroundDrawable());
+        }
     }
 
 //    private Drawable getBackgroundDrawable(){

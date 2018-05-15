@@ -25,6 +25,7 @@ public class JVersionDialog extends Dialog {
 		setLayout();
 		setNewVersion(mNew);
 		setNowVersion(mNow);
+		setCanceledOnTouchOutside(true);
 		
 	}
 
@@ -43,6 +44,7 @@ public class JVersionDialog extends Dialog {
 		mNowVersion.setText(content);
 	}
 
+	private View rootView=null;
 	private TextView mNewVersion;
 	private TextView mNowVersion;
 	private TextView update;
@@ -54,10 +56,17 @@ public class JVersionDialog extends Dialog {
 	 * Layout
 	 */
 	private void setLayout() {
+		rootView=findViewById(R.id.jey_dialog_root);
 		mNewVersion = (TextView) findViewById(R.id.new_version);
 		mNowVersion = (TextView) findViewById(R.id.app_version);
 		update=(TextView)findViewById(R.id.update_btn);
 		update.setOnClickListener(VersionListener);
+		rootView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				cancel();
+			}
+		});
 	}
 	private View.OnClickListener VersionListener = new View.OnClickListener(){
 		@Override

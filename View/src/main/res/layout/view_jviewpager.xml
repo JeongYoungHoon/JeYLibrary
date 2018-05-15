@@ -6,7 +6,7 @@
         android:id="@+id/jviewpager_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <com.jey_dev.lib.jeybasedlibrary.view.JPagerIndicatorView
+    <com.jey_dev.lib.view.JPagerIndicatorView
         android:id="@+id/jviewpager_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -25,7 +25,7 @@
 
     <style name="notice_act_menu_bar">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">50dip</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/colorJeY</item>
         <item name="android:layout_weight">0</item>
         <item name="android:orientation">horizontal</item>

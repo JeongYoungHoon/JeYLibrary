@@ -28,6 +28,7 @@ public class List extends BaseFragment {
     private Dialog dialog=null;
     private static View root;
     private ListView listView;
+    private View emptyView;
     private NotiDataAdapter Adapter=null;
     private BroadcastReceiver noticeReceiver=new BroadcastReceiver() {
         @Override
@@ -36,6 +37,13 @@ public class List extends BaseFragment {
 //                scrollView.addView(DB.Notice.getView(ctx));
                 Adapter= DB.Notice.getTitleView(ctx);
                 listView.setAdapter(Adapter);
+                if(Adapter.getCount()>0){
+                    emptyView.setVisibility(View.GONE);
+                    listView.setVisibility(View.VISIBLE);
+                }else{
+                    emptyView.setVisibility(View.VISIBLE);
+                    listView.setVisibility(View.GONE);
+                }
                 parent.dismissDialog();
             }
         }
@@ -48,6 +56,7 @@ public class List extends BaseFragment {
         }catch(Exception e){
 
         }
+        emptyView=root.findViewById(R.id.notice_empty_view);
         listView=(ListView)root.findViewById(R.id.list_listview);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

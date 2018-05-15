@@ -19,7 +19,11 @@ public class JeYSnsView extends LinearLayout {
     public static final int SCALE_NORMAL=JFloatingActionButton.SCALE_NORMAL;
     public static final int SCALE_MINI=JFloatingActionButton.SCALE_MINI;
     public static final int SCALE_BIG=JFloatingActionButton.SCALE_BIG;
+    public static final int SCALE_CUSTOM=JFloatingActionButton.SCALE_CUSTOM;
     private int scaleType=SCALE_NORMAL;
+    private int customSize=0;
+    private int customMargin = 8;
+    private int imgPadding = 10;
     private View root=null;
     private JFloatingActionButton kakaoView=null;
     private JFloatingActionButton facebookView=null;
@@ -142,6 +146,35 @@ public class JeYSnsView extends LinearLayout {
         marketView.setScaleType(scaleType);
 //        marketView.setLayoutParams(params);
 //        marketView.setPadding(margins,margins,margins,margins);
+        if(scaleType==SCALE_CUSTOM){
+            facebookView.setCustomSize(customSize);
+            kakaoView.setCustomSize(customSize);
+            webView.setCustomSize(customSize);
+            marketView.setCustomSize(customSize);
+        }
+
+        facebookView.setImgPadding(imgPadding);
+        kakaoView.setImgPadding(imgPadding);
+        webView.setImgPadding(imgPadding);
+        marketView.setImgPadding(imgPadding);
+
+
+        final LinearLayout.LayoutParams facebookParams=(LinearLayout.LayoutParams)facebookView.getLayoutParams();
+        final LinearLayout.LayoutParams kakaoParams=(LinearLayout.LayoutParams)kakaoView.getLayoutParams();
+        final LinearLayout.LayoutParams webParams=(LinearLayout.LayoutParams)webView.getLayoutParams();
+        final LinearLayout.LayoutParams marketParams=(LinearLayout.LayoutParams)marketView.getLayoutParams();
+
+        facebookParams.setMargins(customMargin,customMargin,customMargin,customMargin);
+        kakaoParams.setMargins(customMargin,customMargin,customMargin,customMargin);
+        webParams.setMargins(customMargin,customMargin,customMargin,customMargin);
+        marketParams.setMargins(customMargin,customMargin,customMargin,customMargin);
+
+        facebookView.setLayoutParams(facebookParams);
+        kakaoView.setLayoutParams(kakaoParams);
+        webView.setLayoutParams(webParams);
+        marketView.setLayoutParams(marketParams);
+
+
     }
     private void startActivity(Intent intent){
         getContext().startActivity(intent);
@@ -167,6 +200,9 @@ public class JeYSnsView extends LinearLayout {
 
     private void setTypeArray(TypedArray typedArray) {
         scaleType = typedArray.getInt(R.styleable.JeYSnsView_scaleType, SCALE_NORMAL);
+        customSize = typedArray.getDimensionPixelSize(R.styleable.JeYSnsView_customSize, JImageUtils.dpToPx(getContext(), 64));
+        customMargin = typedArray.getDimensionPixelSize(R.styleable.JeYSnsView_customMargin, JImageUtils.dpToPx(getContext(), 8));
+        imgPadding = typedArray.getDimensionPixelSize(R.styleable.JeYSnsView_imgPadding, JImageUtils.dpToPx(getContext(), 10));
         typedArray.recycle();
 
     }

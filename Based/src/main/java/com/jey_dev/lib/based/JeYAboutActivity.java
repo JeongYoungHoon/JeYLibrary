@@ -14,10 +14,12 @@ import android.widget.ImageView;
 
 public class JeYAboutActivity extends JActivity {
 
-    public static final String LOGO_IS_BLACK="logo_is_black";
+    public static final String LOGO_IS_WHITE="logo_is_black";
+    public static final String LOGO_WITH_TITLE="logo_with_title";
 
     private ImageView logoIv=null;
-    private boolean isLogoBlack=false;
+    private boolean isLogoWhite=false;
+    private boolean isLogoWithTitle=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,14 +28,25 @@ public class JeYAboutActivity extends JActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
                 WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
         setContentView(R.layout.activity_jey_about);
-        if(getIntent().hasExtra(LOGO_IS_BLACK)){
-            isLogoBlack=getIntent().getExtras().getBoolean(LOGO_IS_BLACK,false);
+        if(getIntent().hasExtra(LOGO_IS_WHITE)){
+            isLogoWhite=getIntent().getExtras().getBoolean(LOGO_IS_WHITE,false);
+        }
+        if(getIntent().hasExtra(LOGO_WITH_TITLE)){
+            isLogoWithTitle=getIntent().getExtras().getBoolean(LOGO_WITH_TITLE,false);
         }
         logoIv=(ImageView)findViewById(R.id.jey_about_logo_iv);
-        if(isLogoBlack){
-            logoIv.setImageResource(R.drawable.jey_logo);
+        if(isLogoWhite){
+            if(isLogoWithTitle){
+                logoIv.setImageResource(R.drawable.logo_jdev_title_white_240dp);
+            }else {
+                logoIv.setImageResource(R.drawable.logo_jdev_white_240dp);
+            }
         }else{
-            logoIv.setImageResource(R.drawable.jey_logo_white);
+            if(isLogoWithTitle){
+                logoIv.setImageResource(R.drawable.logo_jdev_title_primary_black_240dp);
+            }else {
+                logoIv.setImageResource(R.drawable.logo_jdev_primary_240dp);
+            }
         }
     }
     public void exitAct(View v){

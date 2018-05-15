@@ -11,6 +11,8 @@
     <color name="colorJeY">#FF006934</color>
     <color name="colorJeYHalf">#88006934</color>
     <color name="colorGray">#FF9E9E9E</color>
-    <color name="colorGrayLight">#FFD1D1D1</color>
     <color name="colorGrayDark">#FF6B6B6B</color>
+    <color name="colorGrayLight">#FFD1D1D1</color>
+    <color name="colorGraySLight">#FFE1E1E1</color>
+    <color name="colorGrayWhite">#FFEEEEEE</color>
 </resources>

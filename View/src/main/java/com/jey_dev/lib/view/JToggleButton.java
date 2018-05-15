@@ -12,7 +12,10 @@ import android.view.View;
  */
 
 public class JToggleButton extends android.support.v7.widget.AppCompatImageView {
+    public static final int STYLE_BAR=0;
+    public static final int STYLE_BOX=1;
     private boolean isChecked=false;
+    private int style=STYLE_BAR;
     public JToggleButton(Context context) {
         super(context);
     }
@@ -34,6 +37,7 @@ public class JToggleButton extends android.support.v7.widget.AppCompatImageView 
     private void initView(){
         setScaleType(ScaleType.CENTER_INSIDE);
 //        setImageResource(R.drawable.bg_jtoggle_off);
+//        setClickable(isEnabled());
         setClickable(true);
 //        setOnClickListener(new OnClickListener() {
 //            @Override
@@ -54,15 +58,19 @@ public class JToggleButton extends android.support.v7.widget.AppCompatImageView 
         onClicked();
     }
 
-    public void onClick(View view){
-
-    }
-
     private void onClicked(){
-        if(isChecked){
-            setImageResource(R.drawable.bg_jtoggle_on);
-        }else{
-            setImageResource(R.drawable.bg_jtoggle_off);
+        if(style==STYLE_BAR) {
+            if (isChecked) {
+                setImageResource(R.drawable.bg_jtoggle_on);
+            } else {
+                setImageResource(R.drawable.bg_jtoggle_off);
+            }
+        }else if(style==STYLE_BOX){
+            if (isChecked) {
+                setImageResource(R.drawable.bg_jtoggle_box_on);
+            } else {
+                setImageResource(R.drawable.bg_jtoggle_box_off);
+            }
         }
     }
 
@@ -77,6 +85,31 @@ public class JToggleButton extends android.support.v7.widget.AppCompatImageView 
 
     public boolean getChecked(){
         return isChecked;
+    }
+
+    public int getStyle(){ return style; }
+
+    public void setStyle(int style){ this.style=style; }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+//        setClickable(enabled);
+        if(isChecked){
+            if(style==STYLE_BAR) {
+                if (enabled) {
+                    setImageResource(R.drawable.bg_jtoggle_on);
+                } else {
+                    setImageResource(R.drawable.bg_jtoggle_on_disable);
+                }
+            }else if(style==STYLE_BOX){
+                if (enabled) {
+                    setImageResource(R.drawable.bg_jtoggle_box_on);
+                } else {
+                    setImageResource(R.drawable.bg_jtoggle_box_on_disable);
+                }
+            }
+        }
     }
 
     private void getAttrs(AttributeSet attrs) {
@@ -100,6 +133,7 @@ public class JToggleButton extends android.support.v7.widget.AppCompatImageView 
     private void setTypeArray(TypedArray typedArray) {
 
         isChecked = typedArray.getBoolean(R.styleable.JToggleButton_checked, true);
+        style=typedArray.getInt(R.styleable.JToggleButton_style,STYLE_BAR);
         typedArray.recycle();
 
     }

@@ -50,7 +50,7 @@
                 android:id="@+id/et"
                 android:textSize="@dimen/jey_dialog_msg_text_size"
                 android:padding="5dip"
-                android:backgroundTint="@color/colorAccent"/>
+                android:background="@drawable/bg_dialog_et_input"/>
 
         </LinearLayout>
         <!--<LinearLayout-->

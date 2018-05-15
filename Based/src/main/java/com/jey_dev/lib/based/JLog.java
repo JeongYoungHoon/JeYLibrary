@@ -48,6 +48,16 @@ public final class JLog{
 
     /**
      * Send a {@link #VERBOSE} log message.
+     * @param tag The Tag you would like logged.
+     * @param msg The message you would like logged.
+     * @return The number of bytes written.
+     */
+    public static int v(String tag, String msg) {
+        return Log.v(TAG+","+tag,msg);
+    }
+
+    /**
+     * Send a {@link #VERBOSE} log message.
      * @param error The message you would like logged.
      * @return The number of bytes written.
      */
@@ -81,6 +91,16 @@ public final class JLog{
      */
     public static int d(String msg) {
         return Log.d(TAG,msg);
+    }
+
+    /**
+     * Send a {@link #DEBUG} log message.
+     * @param subTag Sub Tag.
+     * @param msg The message you would like logged.
+     * @return The number of bytes written.
+     */
+    public static int d(String subTag,String msg) {
+        return Log.d(TAG+","+subTag,msg);
     }
 
     /**

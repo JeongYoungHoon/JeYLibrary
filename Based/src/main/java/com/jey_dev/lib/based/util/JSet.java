@@ -13,10 +13,12 @@ import java.util.ArrayList;
  * Created by jeyhoon on 15. 10. 28..
  */
 public class JSet {
-    private static String PREFERENCE_NAME="setting";
-    public static void init(String preferenceName){
-        PREFERENCE_NAME=preferenceName;
+    private static String PREFERENCE_NAME = "setting";
+
+    public static void init(String preferenceName) {
+        PREFERENCE_NAME = preferenceName;
     }
+
     public static void Delete(Context ctx, String key) {
         SharedPreferences prefs = ctx.getSharedPreferences(PREFERENCE_NAME,
                 ctx.MODE_PRIVATE);
@@ -25,7 +27,8 @@ public class JSet {
         ed.commit(); // 필수! 이것을 안해주면 저장이 안되요!
 
     }
-    public static void Delete(Context ctx){
+
+    public static void Delete(Context ctx) {
         SharedPreferences pref = ctx.getSharedPreferences(PREFERENCE_NAME,
                 ctx.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
@@ -56,6 +59,7 @@ public class JSet {
         ed.putBoolean(key, value); // value : 저장될 값,
         ed.commit(); // 필수! 이것을 안해주면 저장이 안되요!
     }
+
     public static void Save(Context ctx, String key, long value) {
         SharedPreferences prefs = ctx.getSharedPreferences(PREFERENCE_NAME,
                 ctx.MODE_PRIVATE);
@@ -63,6 +67,7 @@ public class JSet {
         ed.putLong(key, value); // value : 저장될 값,
         ed.commit(); // 필수! 이것을 안해주면 저장이 안되요!
     }
+
     public static void Save(Context ctx, String key, float value) {
         SharedPreferences prefs = ctx.getSharedPreferences(PREFERENCE_NAME,
                 ctx.MODE_PRIVATE);
@@ -70,8 +75,18 @@ public class JSet {
         ed.putFloat(key, value); // value : 저장될 값,
         ed.commit(); // 필수! 이것을 안해주면 저장이 안되요!
     }
+
+    public static void Save(Context ctx, String key, double value) {
+        SharedPreferences prefs = ctx.getSharedPreferences(PREFERENCE_NAME,
+                ctx.MODE_PRIVATE);
+        SharedPreferences.Editor ed = prefs.edit();
+        final String strValue = String.valueOf(value);
+        ed.putString(key, strValue); // value : 저장될 값,
+        ed.commit(); // 필수! 이것을 안해주면 저장이 안되요!
+    }
+
     public static void Save(Context ctx, String key, ArrayList<String> values) {
-			/*SharedPreferences prefs = ctx.getSharedPreferences(PREFERENCE_NAME,
+            /*SharedPreferences prefs = ctx.getSharedPreferences(PREFERENCE_NAME,
 					ctx.MODE_PRIVATE);
 			SharedPreferences.Editor ed = prefs.edit();
 			ed.putString(key, value); // value : 저장될 값,
@@ -115,12 +130,42 @@ public class JSet {
                 ctx.MODE_PRIVATE);
         return prefs.getLong(key, default_value);
     }
+
     public static float Load(Context ctx, String key,
                              float default_value) {
         SharedPreferences prefs = ctx.getSharedPreferences(PREFERENCE_NAME,
                 ctx.MODE_PRIVATE);
         return prefs.getFloat(key, default_value);
     }
+
+    public static double Load(Context ctx, String key,
+                              double default_value) {
+        SharedPreferences prefs = ctx.getSharedPreferences(PREFERENCE_NAME,
+                ctx.MODE_PRIVATE);
+        try {
+            final String strValue = prefs.getString(key, String.valueOf(default_value));
+            try {
+                final double lngValue = Double.parseDouble(strValue);
+                return lngValue;
+            } catch (NumberFormatException nfe) {
+                nfe.printStackTrace();
+                return default_value;
+            }
+        }catch(ClassCastException cce){
+            cce.printStackTrace();
+            final float fltValue = prefs.getFloat(key, (float)default_value);
+            try {
+
+                return (double)fltValue;
+            } catch (NumberFormatException nfe) {
+                nfe.printStackTrace();
+                return default_value;
+            }
+        }
+
+
+    }
+
     public static ArrayList<String> Load(Context ctx, String key) {
 			/*SharedPreferences prefs = ctx.getSharedPreferences(PREFERENCE_NAME,
 					ctx.MODE_PRIVATE);

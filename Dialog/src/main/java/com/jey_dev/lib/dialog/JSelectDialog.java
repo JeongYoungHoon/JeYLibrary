@@ -43,6 +43,7 @@ JDialogInterface.OnMenuClickListener mOnItemSelectListener;
 		//setContentView(R.layout.select_dialog);
 		//setLayout();
 		setContentView(getLayout());
+		setCanceledOnTouchOutside(true);
 		
 		
 	}
@@ -217,6 +218,12 @@ JDialogInterface.OnMenuClickListener mOnItemSelectListener;
 		}
 		sv.addView(parent);
 		root.addView(sv);
+		root.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				cancel();
+			}
+		});
 		return root;
 	}
 	private View getDiv(){

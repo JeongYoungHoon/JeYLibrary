@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="scaleType" format="reference|enum" >
+    <attr name="scaleType" format="enum" >
         <enum name="normal" value="0"/>
         <enum name="mini" value="1"/>
         <enum name="big" value="2"/>
+        <enum name="custom" value="3"/>
     </attr>
     <attr name="tintColor" format="reference|color" />
+    <attr name="dotColor" format="reference|color" />
+    <attr name="isStack" format="boolean"/>
+    <attr name="dotCount" format="integer"/>
+    <attr name="customSize" format="reference|dimension"/>
+    <attr name="imgPadding" format="reference|dimension"/>
+    <attr name="dotScaleType" format="enum" >
+        <enum name="normal" value="0"/>
+        <enum name="small" value="1"/>
+        <enum name="big" value="2"/>
+        <enum name="custom" value="3"/>
+    </attr>
+    <attr name="indicatorPosition" format="enum">
+        <enum name="top" value="0"/>
+        <enum name="bottom" value="1"/>
+    </attr>
+    <attr name="unCheckWhite" format="boolean"/>
     <declare-styleable name="JFloatingActionButton">
         <attr name="tintColor"/>
         <attr name="scaleType"/>
-        <attr name="imgPadding" format="reference|dimension"/>
-        <!--<attr name="text" format="reference|string" />-->
-        <!--<attr name="textColor" format="reference|integer" />-->
+        <attr name="imgPadding"/>
+        <attr name="customSize"/>
     </declare-styleable>
     <declare-styleable name="JeYSnsView">
         <attr name="scaleType"/>
-        <!--<attr name="tintColor"/>-->
-        <!--<attr name="text" format="reference|string" />-->
-        <!--<attr name="textColor" format="reference|integer" />-->
+        <attr name="customSize"/>
+        <attr name="imgPadding"/>
+        <attr name="customMargin" format="reference|dimension"/>
     </declare-styleable>
     <declare-styleable name="JIconButton">
         <attr name="iconSrc" format="reference"/>
@@ -30,45 +46,54 @@
         <attr name="iconHeight" format="dimension"/>
         <attr name="iconPadding" format="dimension"/>
     </declare-styleable>
-    <declare-styleable name="LevelView">
-        <attr name="level" format="integer"/>
-    </declare-styleable>
-    <declare-styleable name="ProfileCustomView">
-        <attr name="leftLabel" format="string" />
-        <attr name="rightLabel" format="string" />
-        <attr name="uneditable" format="boolean" />
-        <attr name="textSize" format="reference|dimension"/>
-        <attr name="badgeText" format="string"/>
-        <attr name="badgeUsable" format="boolean"/>
-    </declare-styleable>
+
     <declare-styleable name="JClearSearchText">
         <attr name="searchIconLeft" format="boolean"/>
     </declare-styleable>
+
     <declare-styleable name="JPagerIndicatorView">
-        <attr name="scaleType"/>
-        <!--<attr name="scaleType" format="enum" >-->
-            <!--<enum name="normal" value="0"/>-->
-            <!--<enum name="small" value="1"/>-->
-            <!--<enum name="big" value="2"/>-->
+        <!--<attr name="scaleType"/>-->
+        <attr name="dotColor"/>
+        <attr name="isStack"/>
+        <attr name="dotCount"/>
+        <attr name="dotScaleType"/>
+        <attr name="indicatorPosition"/>
+            <!--<enum name="top" value="0"/>-->
+            <!--<enum name="bottom" value="1"/>-->
         <!--</attr>-->
-        <!--<attr name="text" format="reference|string" />-->
-        <attr name="dotColor" format="reference|integer" />
-        <attr name="isStack" format="boolean"/>
-        <attr name="dotCount" format="integer"/>
-        <attr name="dotScaleType" format="enum" >
-            <enum name="normal" value="0"/>
-            <enum name="small" value="1"/>
-            <enum name="big" value="2"/>
-        </attr>
-        <!--<attr name="text" format="reference|string" />-->
-        <!--<attr name="indicatorCenterHorizontal" format="boolean"/>-->
-        <attr name="indicatorPosition" format="enum">
-            <enum name="top" value="0"/>
-            <enum name="bottom" value="1"/>
-        </attr>
-        <attr name="uncheckWhite" format="boolean"/>
+        <attr name="unCheckWhite"/>
     </declare-styleable>
+
+    <declare-styleable name="JViewPager">
+        <!--<attr name="scaleType"/>-->
+        <attr name="dotColor"/>
+        <attr name="isStack"/>
+        <attr name="dotCount"/>
+        <attr name="dotScaleType"/>
+        <attr name="indicatorPosition"/>
+        <!--<enum name="top" value="0"/>-->
+        <!--<enum name="bottom" value="1"/>-->
+        <!--</attr>-->
+        <attr name="unCheckWhite"/>
+    </declare-styleable>
+    <declare-styleable name="JFragmentPager">
+        <!--<attr name="scaleType"/>-->
+        <attr name="dotColor"/>
+        <attr name="isStack"/>
+        <attr name="dotCount"/>
+        <attr name="dotScaleType"/>
+        <attr name="indicatorPosition"/>
+        <!--<enum name="top" value="0"/>-->
+        <!--<enum name="bottom" value="1"/>-->
+        <!--</attr>-->
+        <attr name="unCheckWhite"/>
+    </declare-styleable>
+
     <declare-styleable name="JToggleButton">
         <attr name="checked" format="boolean"/>
+        <attr name="style" format="enum">
+            <enum name="box" value="1"/>
+            <enum name="bar" value="0"/>
+        </attr>
     </declare-styleable>
 </resources>

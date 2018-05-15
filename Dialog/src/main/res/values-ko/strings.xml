@@ -10,4 +10,11 @@
     <string name="mail">메일</string>
     <string name="update">업데이트</string>
     <string name="version_info">버전정보</string>
+    <string name="permission_call_name">전화</string>
+    <string name="permission_camera_name">카메라</string>
+    <string name="permission_location_name">위치</string>
+    <string name="permission_storage_name">저장공간</string>
+    <string name="permission_select">(선택)</string>
+    <string name="permission_necessary">(필수)</string>
+    <string name="agree">동의</string>
 </resources>

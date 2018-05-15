@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="notice">공지사항</string>
+    <string name="notice_empty">공지사항이 존재하지 않습니다</string>
 </resources>

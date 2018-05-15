@@ -126,4 +126,12 @@ public class JTextInputDialog extends JBaseDialog {
 
 		return this;
 	}
+
+	public JTextInputDialog setInputType(final int type){
+		if(null!=et) {
+			et.setInputType(type);
+		}
+
+		return this;
+	}
 }

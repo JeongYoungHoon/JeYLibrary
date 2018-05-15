@@ -22,14 +22,19 @@ public class JToast {
     public static final int TYPE_WHITE_TR=JeYToast.TYPE_WHITE_TR;
     public static final int TYPE_BLACK=JeYToast.TYPE_BLACK;
     public static final int TYPE_BLACK_TR=JeYToast.TYPE_BLACK_TR;
+    public static final int TYPE_PRIMARY=JeYToast.TYPE_PRIMARY;
+    public static final int TYPE_PRIMARY_DARK=JeYToast.TYPE_PRIMARY_DARK;
     public static final int TEXT_BLACK=0xFF000000;
     public static final int TEXT_WHITE=0xFFFFFFFF;
     private Context ctx=null;
     public JToast(Context ctx){
         this.ctx=ctx;
     }
-    public void showToast(String msg){
+    public static void showToast(Context ctx, String msg){
         showToast(ctx,msg,TYPE_JEY, Toast.LENGTH_SHORT);
+    }
+    public static void showToast(Context ctx, String msg, int type){
+        showToast(ctx,msg,type, Toast.LENGTH_SHORT);
     }
     public static void show(@NonNull Context ctx, View view, @NonNull String msg){
         if(null==view){
@@ -82,6 +87,14 @@ public class JToast {
             case TYPE_WHITE_TR:
                 colorId=R.color.colorWhiteHalf;
                 textColor=TEXT_BLACK;
+                break;
+            case TYPE_PRIMARY:
+                colorId=R.color.colorPrimary;
+                textColor=TEXT_WHITE;
+                break;
+            case TYPE_PRIMARY_DARK:
+                colorId=R.color.colorPrimaryDark;
+                textColor=TEXT_WHITE;
                 break;
             default:
                 colorId=type;
